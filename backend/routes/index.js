@@ -7,6 +7,11 @@ const cardsRouter = require('./cards');
 const NotFoundError = require('../errors/notFoundError');
 const auth = require('../middlewares/auth');
 
+indexRouter.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 indexRouter.use('/signup', signupRouter);
 indexRouter.use('/signin', signinRouter);
 indexRouter.use('/signout', signoutRouter);
