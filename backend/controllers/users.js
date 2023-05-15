@@ -38,15 +38,15 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
-const signout = (req, res, next) => {
-  res.sendStatus(401)
-    .clearCookie('token', {
-      httpOnly: true,
-      sameSite: true,
-    })
-    .redirect('signin')
+// выход
+const signout = (req, res) => {
+  res.clearCookie('token', {
+    maxAge: 3600000 * 24 * 7,
+    httpOnly: true,
+    sameSite: true,
+  })
+    .redirect('users/me')
     .end();
-  next();
 };
 // возвращает всех пользователей
 const getAllUsers = (req, res, next) => {
