@@ -44,8 +44,8 @@ const signout = (req, res) => {
     maxAge: 3600000 * 24 * 7,
     httpOnly: true,
     sameSite: true,
-  })
-    .end();
+  });
+  res.send({ message: 'куки удалены' });
 };
 // возвращает всех пользователей
 const getAllUsers = (req, res, next) => {
