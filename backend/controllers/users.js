@@ -45,7 +45,6 @@ const signout = (req, res) => {
     httpOnly: true,
     sameSite: true,
   })
-    .redirect('users/me')
     .end();
 };
 // возвращает всех пользователей
