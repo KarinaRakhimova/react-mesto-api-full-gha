@@ -139,7 +139,10 @@ function App() {
         }
         return;
         })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err);
+        setInfoToolTipOpen(true);
+      })
   }
 
   const handleRegisterSubmit = (inputValues) => {

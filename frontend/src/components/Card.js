@@ -29,6 +29,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
           <p className="element__like-counter">{card.likes.length}</p>
         </div>
       </div>
+      {console.log(isOwn)}
       {isOwn && <button className="element__delete" aria-label="удалить" type="button"
         onClick={() => onCardDelete(card)}></button>}
     </li>
