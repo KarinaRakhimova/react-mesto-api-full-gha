@@ -13,7 +13,6 @@ function Main({ onEditProfile, onEditAvatar, onAddPlace, onCardClick, onCardLike
       onCardDelete={onCardDelete}
       onCardDeleteConfirm={onCardDeleteConfirm}
       isLiked = {isLiked}
-      isOwn = {card.owner._id === currentUser._id}
     />
   ));
 
