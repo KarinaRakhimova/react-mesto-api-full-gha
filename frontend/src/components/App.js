@@ -132,13 +132,12 @@ function App() {
   const handleLoginSubmit = (inputValues) => {
     auth.login(inputValues)
       .then(res => {
-        if (res) {
           setLoggedIn(true);
           setUserEmail(inputValues.email)
           navigate('/', { replace: true })
-        }})
+        })
       .catch(err => {
-        console.log(err, 'логин');
+        console.log(err, 'Неверный логин или пароль');
         setRegSuccess(false);
       })
       .finally(()=>setInfoToolTipOpen(true))
