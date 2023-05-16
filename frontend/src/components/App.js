@@ -46,7 +46,7 @@ function App() {
         setCurrentUser(profileInfo);
         setCardsInfo(cardsInfo);
       })
-      .catch(err => console.log(`Ошибка useEffect ${err}`))
+      .catch(err => console.log(`Ошибка ${err}`))
     }
 
   }, [loggedIn])
