@@ -139,8 +139,8 @@ function App() {
       .catch(err => {
         console.log('Неверный логин или пароль');
         setRegSuccess(false);
+        setInfoToolTipOpen(true);
       })
-      .finally(()=>setInfoToolTipOpen(true))
   }
 
   const handleRegisterSubmit = (inputValues) => {
