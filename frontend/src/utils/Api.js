@@ -5,7 +5,7 @@ class Api {
   }
 
   _checkResponse = (res) =>
-    res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+    res.ok ? res.json() : Promise.reject(`Ошибка _checkResponse: ${res.status}`);
 
   _request(url, method, body) {
     const options = {
