@@ -21,7 +21,15 @@ export const register = (userInfo) => {
 }
 
 export const login = (userInfo) => {
-  return requestApi('signin', 'POST', userInfo)
+  return fetch(`${BASE_URL}signin`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userInfo)
+  })
+  // return requestApi('signin', 'POST', userInfo)
 }
 
 export const getToken = () => {
