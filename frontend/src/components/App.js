@@ -140,8 +140,8 @@ function App() {
       .catch(err => {
         console.log(err);
         setRegSuccess(false);
+        setInfoToolTipOpen(true)
       })
-      .finally(()=>setInfoToolTipOpen(true))
   }
 
   const handleRegisterSubmit = (inputValues) => {
