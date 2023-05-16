@@ -44,6 +44,7 @@ const likeCard = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Карточка не найдена');
     })
+    .populate('owner')
     .then((card) => res.send(card))
     .catch(next);
 };
@@ -57,6 +58,7 @@ const dislikeCard = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Карточка не найдена');
     })
+    .populate('owner')
     .then((card) => res.send(card))
     .catch(next);
 };
