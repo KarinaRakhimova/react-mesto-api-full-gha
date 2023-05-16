@@ -55,18 +55,15 @@ userSchema.statics.findUserByCredentials = function (email, password) {
     .select('+password')
     .then((user) => {
       if (!user) {
-        throw new UnauthorizedError(
-          'Неправильные почта или пароль',
-        );
+        return Promise.reject(new UnauthorizedError('Неправильные почта или пароль'));
       }
       return bcrypt.compare(password, user.password).then((matched) => {
         if (!matched) {
-          throw new UnauthorizedError(
-            'Неправильные почта или пароль',
-          );
+          return Promise.reject(new UnauthorizedError('Неправильные почта или пароль'));
         }
         return user;
       });
-    });
+    })
+    .catch();
 };
 module.exports = mongoose.model('user', userSchema);

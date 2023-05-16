@@ -1,8 +1,4 @@
 const { ValidationError, CastError, DocumentNotFoundError } = require('mongoose').Error;
-const BadRequestError = require('../errors/badRequestError');
-const UnauthorizedError = require('../errors/unauthorizedError');
-const NotFoundError = require('../errors/notFoundError');
-const ForbiddenError = require('../errors/forbiddenError');
 
 const {
   BAD_REQUEST_ERROR_CODE,
@@ -24,12 +20,7 @@ const errorHandler = (err, req, res, next) => {
     res.status(NOTFOUND_ERROR_CODE).send({ message: err.message });
     return;
   }
-  if (
-    err instanceof BadRequestError
-    || err instanceof UnauthorizedError
-    || err instanceof NotFoundError
-    || err instanceof ForbiddenError
-  ) {
+  if (err.statusCode) {
     res.status(err.statusCode).send({ message: err.message });
     return;
   } if (err.code === 11000) {
