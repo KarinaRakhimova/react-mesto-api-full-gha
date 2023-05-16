@@ -136,9 +136,7 @@ function App() {
           setLoggedIn(true);
           setUserEmail(inputValues.email)
           navigate('/', { replace: true })
-        }
-        return;
-        })
+        }})
       .catch(err => {
         console.log(err);
         setRegSuccess(false);
