@@ -13,10 +13,8 @@ const getCards = (req, res, next) => {
 const createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
-    .then((card) => {
-      console.log(card);
-      res.status(201).send(card);
-    })
+    .populate('owner')
+    .then((card) => res.status(201).send(card))
     .catch(next);
 };
 // удаляет карточку по идентификатору
