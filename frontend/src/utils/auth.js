@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://api.mesto2023.students.nomoredomains.monster/';
-const checkResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
+const checkResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка checkResponse: ${res.status}`)
 
 function requestApi(url, method, body) {
   const headers = {

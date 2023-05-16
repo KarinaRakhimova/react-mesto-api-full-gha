@@ -137,7 +137,7 @@ function App() {
           navigate('/', { replace: true })
         })
       .catch(err => {
-        console.log(err, 'Неверный логин или пароль');
+        console.log(err, 'ошибка поймалась в login-handleLoginSubmit');
         setRegSuccess(false);
       })
       .finally(()=>setInfoToolTipOpen(true))

@@ -21,7 +21,7 @@ const errorHandler = (err, req, res, next) => {
     return;
   }
   if (err.statusCode) {
-    res.status(err.statusCode).send({ message: err.message });
+    res.status(err.statusCode).send({ message: 'errorHandler' });
     return;
   } if (err.code === 11000) {
     res.status(DUPLICATE_ERROR_CODE).send({ message: 'Пользователь с данным email уже зарегистрирвоан' });

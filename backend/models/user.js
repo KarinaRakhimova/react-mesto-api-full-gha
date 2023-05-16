@@ -59,11 +59,11 @@ userSchema.statics.findUserByCredentials = function (email, password) {
       }
       return bcrypt.compare(password, user.password).then((matched) => {
         if (!matched) {
-          return Promise.reject(new UnauthorizedError('Неправильные почта или пароль'));
+          return Promise.reject(new UnauthorizedError('findUserByCredentials в модели юзера'));
         }
         return user;
       });
     })
-    .catch();
+    .catch((err) => console.log('cath from findUserByCredentials', err));
 };
 module.exports = mongoose.model('user', userSchema);
