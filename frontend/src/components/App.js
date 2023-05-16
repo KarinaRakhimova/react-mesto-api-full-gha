@@ -138,10 +138,10 @@ function App() {
           navigate('/', { replace: true })
         }})
       .catch(err => {
-        console.log(err);
+        console.log(err, 'логин');
         setRegSuccess(false);
-        setInfoToolTipOpen(true)
       })
+      .finally(()=>setInfoToolTipOpen(true))
   }
 
   const handleRegisterSubmit = (inputValues) => {
