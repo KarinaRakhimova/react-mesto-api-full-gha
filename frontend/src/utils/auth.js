@@ -1,5 +1,5 @@
 export const BASE_URL = 'https://api.mesto2023.students.nomoredomains.monster/';
-const checkResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка checkResponse: ${res.status}`)
+const checkResponse = (res) => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
 
 function requestApi(url, method, body) {
   const headers = {
@@ -21,15 +21,7 @@ export const register = (userInfo) => {
 }
 
 export const login = (userInfo) => {
-  return fetch(`${BASE_URL}signin`, {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(userInfo)
-  })
-  // return requestApi('signin', 'POST', userInfo)
+  return requestApi('signin', 'POST', userInfo)
 }
 
 export const getToken = () => {

@@ -129,32 +129,20 @@ function App() {
       .catch(err => console.log(`Ошибка ${err}`))
   }
 
-  // const handleLoginSubmit = (inputValues) => {
-  //   auth.login(inputValues)
-  //     .then(res => {
-  //         setLoggedIn(true);
-  //         setUserEmail(inputValues.email)
-  //         navigate('/', { replace: true })
-  //       })
-  //     .catch(err => {
-  //       console.log(err, 'ошибка поймалась в login-handleLoginSubmit');
-  //       setRegSuccess(false);
-  //     })
-  //     .finally(()=>setInfoToolTipOpen(true))
-  // }
   const handleLoginSubmit = (inputValues) => {
     auth.login(inputValues)
       .then(res => {
-        setLoggedIn(true);
-        setUserEmail(inputValues.email);
-        navigate('/', { replace: true });
-      })
+          setLoggedIn(true);
+          setUserEmail(inputValues.email)
+          navigate('/', { replace: true })
+        })
       .catch(err => {
         console.log('Неверный логин или пароль');
         setRegSuccess(false);
       })
       .finally(()=>setInfoToolTipOpen(true))
   }
+
   const handleRegisterSubmit = (inputValues) => {
     auth.register(inputValues)
       .then(data => {
@@ -162,7 +150,7 @@ function App() {
         navigate('/sign-in', { replace: true })
       })
       .catch(err => {
-        console.log(err, 'Что-то пошло не так!Попробуйте ещё раз.');
+        console.log('Что-то пошло не так!Попробуйте ещё раз.');
         setRegSuccess(false);
       })
       .finally(()=>setInfoToolTipOpen(true))
